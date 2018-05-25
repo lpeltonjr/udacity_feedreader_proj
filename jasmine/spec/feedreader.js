@@ -31,7 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-		it('and each has a valid URL', function() {
+		it('and each has a URL', function() {
 			allFeeds.forEach((item)=>{
 				expect(item.url).toBeDefined();
 				expect(item.url.length).not.toBe(0);
@@ -114,4 +114,33 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+	describe('New Feed Selection', function() {
+		
+		//	store current text in the feed
+		prevStr = document.querySelector(".feed").innerText;
+				
+		beforeEach(function(done) {
+
+			//	was going to do it by synthetically clicking the menu, but can't make the asynchronous part
+			//	work in Jasmine doing it that way, so I'm calling loadFeed directly;
+			//	a synthetic click would be a better test
+//			$("[data-id=3]").trigger("click");			
+
+			loadFeed(2, ()=>done());
+		});
+
+		it('changes when the new feed is loaded', function() {
+			
+			//	the feed text should have changed from the previous state; ensure it has
+			expect(document.querySelector(".feed").innerText).not.toBe(prevStr);
+
+			//	set the feed back to the first menu item;
+			//	I tried for hours doing this with straight DOM and JavaScript, without success; I had to
+			//	figure out how to do it with JQuery by looking at the JQuery API and StackOverflow; I still don't
+			//	know what the JQuery code in "feedList.on ..." did that keeps dispatchEvent() from working;
+			//	JQuery is de-emphasized in the earlier Udacity course material, so I've not bothered to learn it
+			$("[data-id=0]").trigger("click");			
+		});
+		
+	});
 }());
