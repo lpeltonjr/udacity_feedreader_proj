@@ -138,7 +138,7 @@ $(function() {
 			//	I tried for hours doing this with straight DOM and JavaScript, without success; I had to
 			//	figure out how to do it with JQuery by looking at the JQuery API and StackOverflow; I still don't
 			//	know what the JQuery code in "feedList.on ..." did that keeps dispatchEvent() from working;
-			//	JQuery is de-emphasized in the earlier Udacity course material, so I've not bothered to learn it
+			//	JQuery is de-emphasized in favor of DOM in the earlier Udacity course material, so I've not bothered to learn it
 			$("[data-id=0]").trigger("click");			
 		});
 		
