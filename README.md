@@ -1,4 +1,6 @@
-# Project Overview
+#udacity_feedreader_proj
+
+## Project Overview
 
 This is a Udacity class project for demonstrating use of the Jasmine 2.1.2 test framework.
 
