@@ -5,16 +5,16 @@ This is a Udacity class project for demonstrating use of the Jasmine 2.1.2 test 
 
 ## Dependencies
 
-./css/icomoon.css
-./css/normalize.css
-./css/style.css
-./fonts/icomoon.eot
-./fonts/icomoon.svg
-./fonts/icomoon.ttf
-./fonts/icomoon.woff
-./jasmine/spec/feedreader.js
-./js/app.js
-index.html
+*	./css/icomoon.css
+*	./css/normalize.css
+*	./css/style.css
+*	./fonts/icomoon.eot
+*	./fonts/icomoon.svg
+*	./fonts/icomoon.ttf
+*	./fonts/icomoon.woff
+*	./jasmine/spec/feedreader.js
+*	./js/app.js
+*	index.html
 
 
 ## Setup
