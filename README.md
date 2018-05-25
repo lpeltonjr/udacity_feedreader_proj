@@ -20,7 +20,7 @@ This is a Udacity class project for demonstrating use of the Jasmine 2.1.2 test 
 ## Setup
 
 Open index.html in a modern browser.  The Jasmine test suites in "./jasmine/spec/feedreader.js" will perform 7 tests of the JavaScript feedreader
-application contained in "./js/app.js".  Results are summarized at the bottom of the page.  All tests should pass.
+application contained in "./js/app.js".  Results are summarized at the bottom of the webpage.  All tests should pass.
 
 
 ## Test Details
