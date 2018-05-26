@@ -116,30 +116,27 @@ $(function() {
          */
 	describe('New Feed Selection', function() {
 		
-		//	store current text in the feed
-		prevStr = document.querySelector(".feed").innerText;
+		//	create variable for storing string containing all feed text after loading feed the
+		//	FIRST time
+		let prevStr;
 				
 		beforeEach(function(done) {
-
-			//	was going to do it by synthetically clicking the menu, but can't make the asynchronous part
-			//	work in Jasmine doing it that way, so I'm calling loadFeed directly;
-			//	a synthetic click would be a better test
-//			$("[data-id=3]").trigger("click");			
-
-			loadFeed(2, ()=>done());
+			
+			//	load the feed once; when it's loaded, store the feed text in prevStr for comparison
+			//	later, then load the feed again from a different source and tell Jasmine when that's done
+			loadFeed(2, ()=>{
+				prevStr = document.querySelector(".feed").innerText;
+//				console.log(prevStr);
+				
+				loadFeed(0, ()=>done());
+			});
 		});
 
 		it('changes when the new feed is loaded', function() {
-			
+//			console.log(document.querySelector(".feed").innerText);
+		
 			//	the feed text should have changed from the previous state; ensure it has
 			expect(document.querySelector(".feed").innerText).not.toBe(prevStr);
-
-			//	set the feed back to the first menu item;
-			//	I tried for hours doing this with straight DOM and JavaScript, without success; I had to
-			//	figure out how to do it with JQuery by looking at the JQuery API and StackOverflow; I still don't
-			//	know what the JQuery code in "feedList.on ..." did that keeps dispatchEvent() from working;
-			//	JQuery is de-emphasized in favor of DOM in the earlier Udacity course material, so I've not bothered to learn it
-			$("[data-id=0]").trigger("click");			
 		});
 		
 	});
